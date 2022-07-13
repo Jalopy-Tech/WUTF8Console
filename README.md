@@ -4,18 +4,31 @@
 
 ## Table of Contents
 [Overview](#overview)
+
 [Requirements](#requirements)
+
 [Examples](#examples)
+
 [Instructions](#instructions)
+
 [Background](#Background)
+
 [Using Namespaces](#using-namespaces)
+
 [Passing in Unicode UTF-8 arguments to *main()*](#Passing-in-Unicode-UTF-8-arguments-to-main())
+
 [Input Buffer Size](#Input-Buffer-Size)
+
 [Single Characters and Unicode](#Single-Characters-and-Unicode)
+
 [Windows Console Font](#Windows -Console-Font)
+
 [Command Reference](#Command-Reference)
+
 [License](#License)
+
 [Contact](#Contact)
+
 [Thanks](#Thanks)
 
 ## Overview
