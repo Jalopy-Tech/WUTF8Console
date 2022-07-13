@@ -20,7 +20,7 @@
 
 ## Overview
 
-The Window's console (called *Windows Terminal* or *Command Prompt*) has the problem that it cannot input in Unicode (UTF-8) using standard C++ input commands such as `cin >>`, `getline()`, and `scanf()`, even though it can output in Unicode (UTF-8). Platforms such as Linux and macOS don't have this problem. The WUTF8Console C++ library solves this problem.
+The Window's console (called *Windows Terminal* or *Command Prompt*) has the problem that it cannot input in Unicode (UTF-8) using standard C++ input commands such as `cin >>`, `getline()`, and `scanf()`, even though it can output in Unicode (UTF-8). Platforms such as Linux and macOS don't have this problem. The [WUTF8Console C++ library]() solves this problem.
 
 This library allows a C++ console program to use all common C++ input commands to input with Unicode (UTF-8) in Windows. It works by replacing the standard commands with ones that handle UTF-16 input needed by Windows and automatically translating the input to UTF-8 for data types such as `std::string` and `char*`. The replacement commands include `cin >>` (operators and other methods), `getline()`,  and `scanf()`. Output commands from namespace *std* such as `cout <<` , `cerr <<` and `printf()` also work normally.
 
@@ -176,7 +176,7 @@ int main(int argc, char** argv) {
 
 To use the WUTF8Console C++ library  with your console application, do the following:
 
-1. Download and add the *wutf8console.cpp* and *wutf8console.h* files to your source code.
+1. Download the [latest release]() and add the *wutf8console.cpp* and *wutf8console.h* files to your source code.
 
 2. Include this header:
 
