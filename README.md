@@ -3,33 +3,20 @@
 **A C++ library to have a Windows UTF-8 console for Unicode input and output.**
 
 ## Table of Contents
-[Overview](#overview)
-
-[Requirements](#requirements)
-
-[Examples](#examples)
-
-[Instructions](#instructions)
-
-[Background](#Background)
-
-[Using Namespaces](#using-namespaces)
-
-[Passing in Unicode UTF-8 arguments to *main()*](#Passing-in-Unicode-UTF-8-arguments-to-main())
-
-[Input Buffer Size](#Input-Buffer-Size)
-
-[Single Characters and Unicode](#Single-Characters-and-Unicode)
-
-[Windows Console Font](#Windows -Console-Font)
-
-[Command Reference](#Command-Reference)
-
-[License](#License)
-
-[Contact](#Contact)
-
-[Thanks](#Thanks)
+[Overview](#overview)<br>
+[Requirements](#requirements)<br>
+[Examples](#examples)<br>
+[Instructions](#instructions)<br>
+[Background](#Background)<br>
+[Using Namespaces](#using-namespaces)<br>
+[Passing in Unicode UTF-8 arguments to *main()*](#Passing-in-Unicode-UTF-8-arguments-to-main())<br>
+[Input Buffer Size](#Input-Buffer-Size)<br>
+[Single Characters and Unicode](#Single-Characters-and-Unicode)<br>
+[Windows Console Font](#Windows-Console-Font)<br>
+[Command Reference](#Command-Reference)<br>
+[License](#License)<br>
+[Contact](#Contact)<br>
+[Thanks](#Thanks)<br>
 
 ## Overview
 
