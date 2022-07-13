@@ -238,7 +238,7 @@ To use the WUTF8Console C++ library  with your console application, do the follo
 
 5. Use the commands you declared such as `cin >>`, `getline()`, `scanf()`, `cout <<` and `printf()` normally. When the data types `std::string` and `char*` are used with these commands , Unicode will be input from and output to the Windows console correctly. Don't use wide character data types such as `wchar_t*` and `wstring`: they are not needed and they are not welcome!
 
-5. If Unicode (UTF-8) is needed in the arguments passed into `main()`s `argv`list, link the *libwinsane.o* file when compiling in Windows. See the section [Passing in Unicode UTF-8 arguments to *main()*](#Passing in Unicode UTF-8 arguments to *main()*).
+5. If Unicode (UTF-8) is needed in the arguments passed into `main()`s `argv`list, link the *libwinsane.o* file when compiling in Windows. See the section [Passing in Unicode UTF-8 arguments to *main()*](#Passing-in-Unicode-UTF-8-arguments-to-main()).
 
 6. Make sure the Windows console is set to a font that can display your desired Unicode characters. See the section [Windows Console Font](#Windows-Console-Font).
 
@@ -375,12 +375,9 @@ You are welcome to download and try my pre-compiled [libwinsane.o](https://githu
 
 2. Download the 5 files in the [libwinsane repository](https://github.com/skeeto/scratch/tree/master/libwinsane) to a new local folder.
 
-3. Edit the *Makefile* file: on line 2, change the line from:
-
-    `CROSS   = x86_64-w64-mingw32-`
-
-   to:
-
+3. Edit the *Makefile* file: on line 2, change the line from:<br>
+    `CROSS   = x86_64-w64-mingw32-`<br>
+      to:<br>
     `CROSS   =`
 
 4. Open the folder in a Windows console (Terminal).
