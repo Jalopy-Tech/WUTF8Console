@@ -8,12 +8,12 @@
 [Examples](#examples)
 [Instructions](#instructions)
 [Background](#Background)
-[Using Namespaces](#using namespaces)
-[Passing in Unicode UTF-8 arguments to *main()*](#Passing in Unicode UTF-8 arguments to main())
-[Input Buffer Size](#Input Buffer Size)
-[Single Characters and Unicode](#Single Characters and Unicode)
-[Windows Console Font](#Windows Console Font)
-[Command Reference](#Command Reference)
+[Using Namespaces](#using-namespaces)
+[Passing in Unicode UTF-8 arguments to *main()*](#Passing-in-Unicode-UTF-8-arguments-to-main())
+[Input Buffer Size](#Input-Buffer-Size)
+[Single Characters and Unicode](#Single-Characters-and-Unicode)
+[Windows Console Font](#Windows -Console-Font)
+[Command Reference](#Command-Reference)
 [License](#License)
 [Contact](#Contact)
 [Thanks](#Thanks)
@@ -238,10 +238,9 @@ To use the WUTF8Console C++ library  with your console application, do the follo
 
 5. Use the commands you declared such as `cin >>`, `getline()`, `scanf()`, `cout <<` and `printf()` normally. When the data types `std::string` and `char*` are used with these commands , Unicode will be input from and output to the Windows console correctly. Don't use wide character data types such as `wchar_t*` and `wstring`: they are not needed and they are not welcome!
 
-5. If Unicode (UTF-8) is needed in the arguments passed into `main()`'s `argv`list, link the *libwinsane.o* file when compiling in Windows. See the section [Passing in Unicode UTF-8 arguments to *main()*](#Passing in Unicode UTF-8 arguments to *main()*).
+5. If Unicode (UTF-8) is needed in the arguments passed into `main()`s `argv`list, link the *libwinsane.o* file when compiling in Windows. See the section [Passing in Unicode UTF-8 arguments to *main()*](#Passing in Unicode UTF-8 arguments to *main()*).
 
 6. Make sure the Windows console is set to a font that can display your desired Unicode characters. See the section [Windows Console Font](#Windows-Console-Font).
-
 
 ## Background
 
