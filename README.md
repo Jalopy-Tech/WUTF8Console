@@ -1,8 +1,22 @@
 # WUTF8Console C++ Library
 
-**to have a Windows UTF-8 Console for Unicode input and output** 
+**A C++ library to have a Windows UTF-8 console for Unicode input and output.**
 
-[TOC]
+## Table of Contents
+[Overview](#overview)
+[Requirements](#requirements)
+[Examples](#examples)
+[Instructions](#instructions)
+[Background](#Background)
+[Using Namespaces](#using namespaces)
+[Passing in Unicode UTF-8 arguments to *main()*](#Passing in Unicode UTF-8 arguments to main())
+[Input Buffer Size](#Input Buffer Size)
+[Single Characters and Unicode](#Single Characters and Unicode)
+[Windows Console Font](#Windows Console Font)
+[Command Reference](#Command Reference)
+[License](#License)
+[Contact](#Contact)
+[Thanks](#Thanks)
 
 ## Overview
 
@@ -35,6 +49,7 @@ Here is an example of main.cpp for Windows-only compilation:
 #include <stdio.h>
 
 // Include the WUTF8Console C++ library
+
 #include "wutf8console.h"
 
 // Please don't use "using namespace std;" as this will create
@@ -54,19 +69,25 @@ using std::string;
 int main(int argc, char** argv) {
 
 	// Set the console to UTF-8 in Windows.
+    
 	wutf8console::setupConsole();
 
+    
 	// Print welcome message using printf().
+    
 	char website[] = "https://github.com/Jalopy-Tech/WUTF8Console";
 	printf("Welcome to the WUTF8Console library for C++ \n%s\n\n", website);
 
+    
 	// Print info using cout <<
+    
 	cout << "In Windows, this library fixes common input commands such as " << endl;
 	cout << "cin, getline, and scanf when using Unicode UTF-8." << endl << endl;
 	cout << "Make sure the Windows console is set to a font that can " << endl;
 	cout << "display your desired Unicode characters." << endl <<endl;
 
 	// Prompt for string using cout << and get input using getline() with cin
+    
 	cout << "Please enter some text that includes Unicode: ";
 	string s;
 	getline(cin, s);
@@ -87,12 +108,14 @@ Here is an example of main.cpp for cross-platform compilation:
 #include <stdio.h>
 
 // Include the WUTF8Console C++ library
+
 #include "wutf8console.h"
 
 // Please don't use "using namespace std;" as this will create
 // an ambiguous compiler error.
 
 // Use two alternative sets of input commands
+
 #ifdef _WIN32 // Windows platform (including 64 bit)
 using wutf8console::cin;
 using wutf8console::getline;
@@ -103,11 +126,15 @@ using std::getline;
 using std::scanf;
 #endif
 
+
 // Use one set of output commands
+
 using std::cout;
 using std::endl;
 
+
 // Use other commands
+
 using std::string;
 
 // If Unicode UTF-8 is needed in the arguments in main()'s argv,
@@ -116,10 +143,12 @@ using std::string;
 int main(int argc, char** argv) {
 
 	// Set the console to UTF-8 in Windows.
+    
 	wutf8console::setupConsole();
 
 
 	// Print welcome message using printf().
+    
 	char website[] = "https://github.com/Jalopy-Tech/WUTF8Console";
 	printf("Welcome to the WUTF8Console library for C++ \n%s\n\n", website);
 
@@ -130,7 +159,9 @@ int main(int argc, char** argv) {
 	cout << endl <<  "Make sure the Windows console is set to a font";
 	cout << " that can display your desired Unicode characters." << endl <<endl;
 
+    
 	// Prompt for string using cout << and get input using getline() with cin
+    
 	cout << "Please enter some text that includes Unicode: ";
 	string s;
 	getline(cin, s);
@@ -159,11 +190,14 @@ To use the WUTF8Console C++ library  with your console application, do the follo
 
    ```cpp
    // Use input commands
+   
    using wutf8console::cin;
    using wutf8console::getline;
    using wutf8console::scanf;
    
+   
    // Use output commands
+   
    using std::cout;
    using std::endl;
    ```
@@ -174,6 +208,7 @@ To use the WUTF8Console C++ library  with your console application, do the follo
 
    ```cpp
    // Use two alternative sets of input commands
+   
    #ifdef _WIN32 // Windows platforms (including 64-bit)
    using wutf8console::cin;
    using wutf8console::getline;
@@ -184,7 +219,9 @@ To use the WUTF8Console C++ library  with your console application, do the follo
    using std::scanf;
    #endif
    
+   
    // Use output commands
+   
    using std::cout;
    using std::endl;
    ```
@@ -242,6 +279,7 @@ For cross-platform compilation,  input commands need two sets: one for Windows a
 
 ```cpp
 // Use these input commands.
+
 #ifdef _WIN32 // Windows platforms (including 64-bit)
 using wutf8console::cin;
 using wutf8console::getline;
@@ -252,11 +290,15 @@ using std::getline;
 using std::scanf;
 #endif
 
+
 // Use these output commands.
+
 using std::cout;
 using std::endl;
 
+
 // Use other commands
+
 using std::string;
 
 //...
@@ -324,17 +366,26 @@ cin >> name;
 #endif
 ```
 
-## Passing in Unicode UTF-8 arguments to *main()*
+## Passing in Unicode UTF-8 arguments to *main*()
 
 When compiling in Windows, arguments won't be passed into`int main(int argc, char** argv)` as Unicode by default. A simple fix to this, if needed, is to use a library called [libwinsane](https://github.com/skeeto/scratch/tree/master/libwinsane) which consists of a single object file *libwinsane.o* which can be linked with your project when compiling in Windows. No `#include` directive is needed in your source code.
 
-You are welcome to download and try my pre-compiled  *libwinsane.o* file, but I recommend compiling it from source using the *make* command as follows:
+You are welcome to download and try my pre-compiled [libwinsane.o](https://github.com/Jalopy-Tech/WUTF8Console/blob/main/libwinsane/libwinsane.o) file, but I recommend compiling it from source using the *make* command as follows:
 
 1. Make sure your compiler (bin folder) is in your Windows PATH.
+
 2. Download the 5 files in the [libwinsane repository](https://github.com/skeeto/scratch/tree/master/libwinsane) to a new local folder.
-3. Edit the *Makefile* file: on line 2, change the line from `CROSS   = x86_64-w64-mingw32-` to `CROSS   =`.
+
+3. Edit the *Makefile* file: on line 2, change the line from:
+
+    `CROSS   = x86_64-w64-mingw32-`
+
+   to:
+
+    `CROSS   =`
 
 4. Open the folder in a Windows console (Terminal).
+
 5. Run the `make` command. Your make command might not be `make`. For example, it might be `mingw32-make`.
 
 Once compiled, do the following:
@@ -455,13 +506,13 @@ bool setupConsole(); // [necessary]
 
 Copyright &copy; 2022 Robert J. Joynt.
 
-The WUTF8Console C++ Library is free software under the MIT License.
+The WUTF8Console C++ Library is free software under the [MIT License](https://github.com/Jalopy-Tech/WUTF8Console/blob/main/LICENSE.md).
 
 ## Contact
 
 For further inquires, please email: robertjjoynt@gmail.com .
 
-## Thank you
+## Thanks
 
 - To Eric the Viking, my student, for bringing this problem to my attention and testing the library.
 - [Chris Wellons](https://nullprogram.com/blog/2021/12/30/) for writing the [libwinsane library](https://github.com/skeeto/scratch/tree/master/libwinsane) which allows Unicode UTF-8 arguments to be passed into  a Windows console C++ program.
