@@ -24,7 +24,7 @@ The Window's console (called *Windows Terminal* or *Command Prompt*) has the pro
 
 This library allows a C++ console program to use all common C++ input commands to input with Unicode (UTF-8) in Windows. It works by replacing the standard commands with ones that handle UTF-16 input needed by Windows and automatically translating the input to UTF-8 for data types such as `std::string` and `char*`. The replacement commands include `cin >>` (operators and other methods), `getline()`,  and `scanf()`. Output commands from namespace *std* such as `cout <<` , `cerr <<` and `printf()` also work normally.
 
-Because this library allows both input and output in Unicode (UTF-8), modern IDEs such as [Embarcadero Dev-C++ 6.3](https://github.com/Embarcadero/Dev-Cpp),  [Code::Blocks](https://www.codeblocks.org/) and [Visual Studio](https://visualstudio.microsoft.com/) can be used instead old IDEs such as [Dev-C++ 5.2](https://sourceforge.net/projects/orwelldevcpp/). The IDE and console application won't be tied to a Windows locale coding page.
+Because this library allows both input and output in Unicode (UTF-8), modern IDEs such as [Embarcadero Dev-C++ 6.3](https://github.com/Embarcadero/Dev-Cpp),  [Code::Blocks](https://www.codeblocks.org/) and [Visual Studio Code](https://code.visualstudio.com/) can be used instead old IDEs such as [Dev-C++ 5.2](https://sourceforge.net/projects/orwelldevcpp/). The IDE and console application won't be tied to a Windows locale coding page.
 
 The library has been designed to be cross-platform compatible, so that the same source code will compile on non-Windows platforms where the application will use the standard commands only.
 
@@ -246,7 +246,7 @@ To use the WUTF8Console C++ library  with your console application, do the follo
 
 This library has been written for students learning C++ coding in Windows where foreign-language input to the Windows console is needed.  Before now, non-ASCII characters could only be entered with these commands when using an obsolete non-Unicode compliant IDE such as [Dev-C++ 5.2](https://sourceforge.net/projects/orwelldevcpp/) with the Windows locale coding page set to the desired language.
 
- Modern IDEs such as [Embarcadero Dev-C++ 6.3](https://github.com/Embarcadero/Dev-Cpp),  [Code::Blocks](https://www.codeblocks.org/) and [Visual Studio](https://visualstudio.microsoft.com/) could not be used. These IDEs can now be used when using this library. 
+ Modern IDEs such as [Embarcadero Dev-C++ 6.3](https://github.com/Embarcadero/Dev-Cpp),  [Code::Blocks](https://www.codeblocks.org/) and [Visual Studio Code](https://code.visualstudio.com/) could not be used. These IDEs can now be used when using this library. 
 
 I hope this library is useful for:
 
