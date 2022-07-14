@@ -174,7 +174,7 @@ int main(int argc, char** argv) {
 
 Here is a screenshot of the Windows console using the WUFT8Console C++ library:
 
-![](images\WUTFConsole.png)
+<img align="center"  src="./images/Screenshot-WUTF8Console.png" alt="Screenshot-WUTF8Console"  />
 
 ## Instructions
 
