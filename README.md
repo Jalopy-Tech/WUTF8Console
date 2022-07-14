@@ -33,7 +33,7 @@ The library has been designed to be cross-platform compatible, so that the same 
 The WUTF8Console C++ library has the following requirements:
 
 - C++ version of C++14 or higher. It compiles with ISO C++14, ISO C++17 and ISO C++20. It won't compile with C++11. On non-Windows platforms, it can use any C++ version.
-- Compilers GCC and MSVC work.
+- Compilers [GCC](https://gcc.gnu.org/), [MSVC](https://visualstudio.microsoft.com/vs/features/cplusplus/) and [LLVM Clang](https://clang.llvm.org/) work.
 - Windows versions Windows 10 and Windows 11 work.
 - The Windows console needs to be set to a font that can display the desired Unicode characters to see it working. See the section [Windows Console Font](#Windows-Console-Font).
 
@@ -171,6 +171,10 @@ int main(int argc, char** argv) {
 	return 0;
 }
 ```
+
+Here is a screenshot of the Windows console using the WUFT8Console C++ library:
+
+![](images\WUTFConsole.png)
 
 ## Instructions
 
