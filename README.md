@@ -371,7 +371,7 @@ cin >> name;
 
 ## Passing in Unicode UTF-8 arguments to *main*()
 
-When compiling in Windows, arguments won't be passed into`int main(int argc, char** argv)` as Unicode by default. A simple fix to this, if needed, is to use a library called [libwinsane](https://github.com/skeeto/scratch/tree/master/libwinsane) which consists of a single object file *libwinsane.o* which can be linked with your project when compiling in Windows. No `#include` directive is needed in your source code.
+When compiling in Windows, arguments won't be passed into`int main(int argc, char** argv)` as Unicode by default. A simple fix to this, if needed, is to use a library called [libwinsane](https://github.com/skeeto/scratch/tree/master/libwinsane) which consists of a single object file *libwinsane.o* which can be linked with your project when compiling/linking in Windows. No `#include` directive is needed in your source code.
 
 You are welcome to download and try my pre-compiled [libwinsane.o](https://github.com/Jalopy-Tech/WUTF8Console/blob/main/libwinsane/libwinsane.o) file, but I recommend compiling it from source using the *make* command as follows:
 
@@ -391,7 +391,27 @@ You are welcome to download and try my pre-compiled [libwinsane.o](https://githu
 Once compiled, do the following:
 
 1. Copy the *libwinsane.o* file to your source code folder.
-2. Set you compiler to link this file. This can be done using an IDE feature or by manually adding an option to the linker such as `-L libwinsane.o` .
+2. Set you compiler/linker to link this file. This can be done using an IDE feature or by manually adding an option to the linker such as `.\libwinsane.o` .
+
+To test your executable, run it in the console with an additional Unicode argument. The following code will output the argument:
+
+```cpp
+int main(int argc, char** argv) {
+
+	// Set the console to UTF-8 in Windows.
+	
+	wutf8console::setupConsole();
+	
+    
+	cout << "The executable is " << argv[0] << "." << endl;
+	if (argc >= 2)
+	    cout << "The first additional argument is " << argv[1] << "." << endl;
+	else
+	    cout << "There are no additional arguments." << endl;
+
+	return 0;
+}
+```
 
 ## Input Buffer Size
 
