@@ -18,7 +18,10 @@
 
 
 namespace wutf8consoleTest {
-	void doTest();
+
+	void doTest(int argc, char** argv);
+
+	void argumentsDisplayTest(int argc, char** argv);
 
 	void coutOutputStringTest();
 	void coutOutputCstrTest();
