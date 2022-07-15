@@ -9,7 +9,7 @@
 [Instructions](#instructions)<br>
 [Background](#Background)<br>
 [Using Namespaces](#using-namespaces)<br>
-[Passing in Unicode UTF-8 arguments to *main()*](#Passing-in-Unicode-UTF-8-arguments-to-main())<br>
+[Passing in Unicode UTF-8 arguments to *main()*](#Passing-in-Unicode-UTF-8-arguments-to-*main()*)<br>
 [Input Buffer Size](#Input-Buffer-Size)<br>
 [Single Characters and Unicode](#Single-Characters-and-Unicode)<br>
 [Windows Console Font](#Windows-Console-Font)<br>
