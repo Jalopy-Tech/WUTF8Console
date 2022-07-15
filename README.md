@@ -25,7 +25,7 @@ The Windows console (called *Windows Terminal* or *Command Prompt*) has the prob
 
 This library allows a C++ console program to use all common C++ input commands to input with Unicode (UTF-8) in Windows. It works by replacing the standard commands with ones that handle UTF-16 input needed by Windows and automatically translating the input to UTF-8 for data types such as `std::string` and `char*`. The replacement commands include `cin >>` (operators and other methods), `getline()`,  and `scanf()`. Output commands from namespace *std* such as `cout <<` , `cerr <<` and `printf()` also work normally.
 
-Because this library allows both input and output in Unicode (UTF-8), modern IDEs such as [Embarcadero Dev-C++ 6.3](https://github.com/Embarcadero/Dev-Cpp),  [Code::Blocks](https://www.codeblocks.org/) and [Visual Studio Code](https://code.visualstudio.com/) can be used instead old IDEs such as [Dev-C++ 5.2](https://sourceforge.net/projects/orwelldevcpp/). The IDE and console application won't be tied to a Windows locale coding page.
+Because this library allows both input and output in Unicode (UTF-8), modern IDEs such as [Embarcadero Dev-C++ 6.3](https://github.com/Embarcadero/Dev-Cpp),  [Code::Blocks](https://www.codeblocks.org/), [Visual Studio Code](https://code.visualstudio.com/) and [Visual Studio](https://visualstudio.microsoft.com/) can be used instead old IDEs such as [Dev-C++ 5.2](https://sourceforge.net/projects/orwelldevcpp/). The IDE and console application won't be tied to a Windows locale coding page.
 
 The library has been designed to be cross-platform compatible, so that the same source code will compile on non-Windows platforms where the application will use the standard commands only.
 
@@ -251,7 +251,7 @@ To use the WUTF8Console C++ library  with your console application, do the follo
 
 This library has been written for students learning C++ coding in Windows where foreign-language input to the Windows console is needed.  Before now, non-ASCII characters could only be entered with these commands when using an obsolete non-Unicode compliant IDE such as [Dev-C++ 5.2](https://sourceforge.net/projects/orwelldevcpp/) with the Windows locale coding page set to the desired language.
 
- Modern IDEs such as [Embarcadero Dev-C++ 6.3](https://github.com/Embarcadero/Dev-Cpp),  [Code::Blocks](https://www.codeblocks.org/) and [Visual Studio Code](https://code.visualstudio.com/) could not be used. These IDEs can now be used when using this library. 
+ Modern IDEs such as [Embarcadero Dev-C++ 6.3](https://github.com/Embarcadero/Dev-Cpp),  [Code::Blocks](https://www.codeblocks.org/), [Visual Studio Code](https://code.visualstudio.com/) and [Visual Studio](https://visualstudio.microsoft.com/) could not be used. These IDEs can now be used when using this library. 
 
 I hope this library is useful for:
 
@@ -392,7 +392,7 @@ You are welcome to download and try my pre-compiled [libwinsane.o](https://githu
 Once compiled, do the following:
 
 1. Copy the *libwinsane.o* file to your source code folder.
-2. Set you compiler/linker to link this file. This can be done using an IDE feature or by manually adding an option to the linker such as `.\libwinsane.o` .
+2. Set you compiler/linker to link this file. This can be done using an IDE feature or by manually adding an option to the linker such as `.\libwinsane.o` . For tips on linking within a specific IDE, see the section [IDE Tips](#IDE-Tips).
 
 To test your executable, run it in the console with an additional Unicode argument. The following code will output the argument:
 
@@ -532,20 +532,16 @@ bool setupConsole(); // [necessary]
 Here are some tips for using [Embarcadero Dev-C++ 6.3](https://github.com/Embarcadero/Dev-Cpp) and Unicode:
 
 -  If Unicode only shows, when the line with the Unicode is selected, do the following:
-  1. Got to the menu *Tools* -> *Editor options...*.
+  1. Go to the menu *Tools* -> *Editor options...*.
   2. Select the *Fonts* page tab.
   3. Uncheck any boxes under the font that has the pattern *ID xxxxx translation* missing.
   4. Click *Ok* to save changes.
-  
-- If Unicode is present in the code, make sure the file is being saved as UTF-8 encoding. The application should prompt for this when saving for the first time. To manually check, use the menu: *File* -> *Save As...*.
-
+-  If Unicode is present in the code, make sure the file is being saved as UTF-8 encoding. The application should prompt for this when saving for the first time. To manually check, use the menu: *File* -> *Save As...*.
 - To link [libwinsane.o](#Passing-in-Unicode-UTF-8-Arguments-to-main), do the following:
 
   1. Go to the menu *Tools* -> *Compiler Options...*.
 
-  2. Under the section *Add the following commands when calling the linker*, add the command:
-
-      `-llibwinsane.o` .
+  2. Under the section *Add the following commands when calling the linker*, add the command:<br>`-llibwinsane.o` .
 
   3. Click *Ok* to save changes.
 
@@ -571,7 +567,7 @@ Here are some tips for using [Code::Blocks](https://www.codeblocks.org/) and Uni
 
 ### Visual Studio Code
 
-Here are some tips for using [Visual Studio Code](https://code.visualstudio.com/) and Unicode:
+Here are some tips for using [Visual Studio](https://visualstudio.microsoft.com/) and Unicode:
 
 - To add the wutf8console.cpp file to be compiled, do the following:
 
@@ -592,12 +588,17 @@ Here are some tips for using [Visual Studio Code](https://code.visualstudio.com/
 
   2. Find the `"args": [` section within the `"tasks": [` section.
 
-  3. Before the `"-o",` line, add this line:
-
+  3. Before the `"-o",` line, add this line:<br>
      ```json
      "libwinsane.o",
      ```
      
+
+### Visual Studio
+- To link [libwinsane.o](#Passing-in-Unicode-UTF-8-Arguments-to-main), do the following:
+  1. In the *Solution Explorer* tree, find the project.
+  2. Right click on the project and select *Add* -> *Existing Item...*.
+
 
 ## License
 
