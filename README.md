@@ -548,7 +548,6 @@ Here are some tips for using [Embarcadero Dev-C++ 6.3](https://github.com/Embarc
 ### Code::Blocks
 
 Here are some tips for using [Code::Blocks](https://www.codeblocks.org/) and Unicode:
-
 - Code contained in `#ifdef _WIN32` gates might be ghosted out with the code in the `#else` part not ghosted out. This is because the IDE isn't recognizing  _WIN32 even if the compiler is. To fix this, do the following:
   1. Go to the menu *Settings* -> *Compiler...* .
   2. Select the relevant compiler.
@@ -568,37 +567,26 @@ Here are some tips for using [Code::Blocks](https://www.codeblocks.org/) and Uni
 ### Visual Studio Code
 
 Here are some tips for using [Visual Studio](https://visualstudio.microsoft.com/) and Unicode:
-
 - To add the wutf8console.cpp file to be compiled, do the following:
-
   1. Edit the *tasks.json* file.
-
   2. Find the `"args": [` section within the `"tasks": [` section.
-
   3. Before the `"-o",` line, add these lines:
-
      ```json
      "-g",
      "${fileDirname}\\wutf8console.cpp",
      ```
-
 - To link [libwinsane.o](#Passing-in-Unicode-UTF-8-Arguments-to-main), do the following:
-
   1. Edit the *tasks.json* file.
-
   2. Find the `"args": [` section within the `"tasks": [` section.
-
   3. Before the `"-o",` line, add this line:<br>
      ```json
      "libwinsane.o",
      ```
-     
-
 ### Visual Studio
 - To link [libwinsane.o](#Passing-in-Unicode-UTF-8-Arguments-to-main), do the following:
   1. In the *Solution Explorer* tree, find the project.
   2. Right click on the project and select *Add* -> *Existing Item...*.
-
+  3. Select the *libwinsane.o* file.
 
 ## License
 
