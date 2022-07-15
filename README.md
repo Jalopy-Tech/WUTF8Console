@@ -530,7 +530,6 @@ bool setupConsole(); // [necessary]
 ### Embarcadero Dev-C++ 6.3
 
 Here are some tips for using [Embarcadero Dev-C++ 6.3](https://github.com/Embarcadero/Dev-Cpp) and Unicode:
-
 -  If Unicode only shows, when the line with the Unicode is selected, do the following:
   1. Go to the menu *Tools* -> *Editor options...*.
   2. Select the *Fonts* page tab.
@@ -538,11 +537,8 @@ Here are some tips for using [Embarcadero Dev-C++ 6.3](https://github.com/Embarc
   4. Click *Ok* to save changes.
 -  If Unicode is present in the code, make sure the file is being saved as UTF-8 encoding. The application should prompt for this when saving for the first time. To manually check, use the menu: *File* -> *Save As...*.
 - To link [libwinsane.o](#Passing-in-Unicode-UTF-8-Arguments-to-main), do the following:
-
   1. Go to the menu *Tools* -> *Compiler Options...*.
-
   2. Under the section *Add the following commands when calling the linker*, add the command:<br>`-llibwinsane.o` .
-
   3. Click *Ok* to save changes.
 
 ### Code::Blocks
