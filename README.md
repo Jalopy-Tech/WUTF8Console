@@ -431,8 +431,11 @@ When using the Windows console (called *Windows Terminal* or *Command Prompt*), 
 To view or change the font, do the following:
 
 1. Open the console.
+
 2. Click on the top left icon, then select Properties.
+
 3. The font and font size can be viewed and changed.
+
 4. Click Ok to save changes.
 
 Fonts such as *NimSimSun*, *Lucinda Console* or *Consolas* may be suitabe. If there are no suitable fonts, a suitable font may be available online for download. Adding the relevant language to Windows may also add a suitable font. For some languages, special changes may need to be done to allow the Windows console to display the desired font.
@@ -531,57 +534,92 @@ bool setupConsole(); // [necessary]
 
 Here are some tips for using [Embarcadero Dev-C++ 6.3](https://github.com/Embarcadero/Dev-Cpp) and Unicode:
 -  If Unicode only shows, when the line with the Unicode is selected, do the following:
+
   1. Go to the menu *Tools* -> *Editor options...*.
+  
   2. Select the *Fonts* page tab.
+  
   3. Uncheck any boxes under the font that has the pattern *ID xxxxx translation* missing.
+  
   4. Click *Ok* to save changes.
+
 -  If Unicode is present in the code, make sure the file is being saved as UTF-8 encoding. The application should prompt for this when saving for the first time. To manually check, use the menu: *File* -> *Save As...*.
+
 - To link [libwinsane.o](#Passing-in-Unicode-UTF-8-Arguments-to-main), do the following:
+
   1. Go to the menu *Tools* -> *Compiler Options...*.
+  
   2. Under the section *Add the following commands when calling the linker*, add the command:<br>`-llibwinsane.o` .
+  
   3. Click *Ok* to save changes.
 
 ### Code::Blocks
 
 Here are some tips for using [Code::Blocks](https://www.codeblocks.org/) and Unicode:
 - Code contained in `#ifdef _WIN32` gates might be ghosted out with the code in the `#else` part not ghosted out. This is because the IDE isn't recognizing  _WIN32 even if the compiler is. To fix this, do the following:
+
   1. Go to the menu *Settings* -> *Compiler...* .
+  
   2. Select the relevant compiler.
+  
   3. Go to the *Compiler settings* page tab which should already be displayed by default.
+  
   4. Go to the *#defines* subpage tab.
+  
   5. Add the line `_WIN32`to the large text box.
+  
   6. Click *Ok* to save the settings.
+  
   7. Close and reopen the project to allow the new settings to take effect.
+  
 -  To link [libwinsane.o](#Passing-in-Unicode-UTF-8-Arguments-to-main), do the following:
+
   1. Go to the menu: *Project* -> *Build options...* .
+  
   2. On the left tree, select the whole project at the top of the tree.
+  
   3. Select the relevant compiler.
+  
   4. Go to the *Linker settings* page tab.
+  
   5. In *Link libraries* use the *Add* button to add the file `.\libwinsane.o` .
+  
   6. Click Ok to save changes.
 
 ### Visual Studio Code
 
 Here are some tips for using [Visual Studio](https://visualstudio.microsoft.com/) and Unicode:
+
 - To add the wutf8console.cpp file to be compiled, do the following:
+
   1. Edit the *tasks.json* file.
+  
   2. Find the `"args": [` section within the `"tasks": [` section.
+  
   3. Before the `"-o",` line, add these lines:
      ```json
      "-g",
      "${fileDirname}\\wutf8console.cpp",
      ```
+
 - To link [libwinsane.o](#Passing-in-Unicode-UTF-8-Arguments-to-main), do the following:
+
   1. Edit the *tasks.json* file.
+  
   2. Find the `"args": [` section within the `"tasks": [` section.
+  
   3. Before the `"-o",` line, add this line:<br>
      ```json
      "libwinsane.o",
      ```
+
 ### Visual Studio
 - To link [libwinsane.o](#Passing-in-Unicode-UTF-8-Arguments-to-main), do the following:
+
   1. In the *Solution Explorer* tree, find the project.
+  
   2. Right click on the project and select *Add* -> *Existing Item...*.
+  
   3. Select the *libwinsane.o* file.
 
 ## License
