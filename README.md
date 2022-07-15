@@ -3,13 +3,13 @@
 **A C++ library to have a Windows UTF-8 console for Unicode input and output.**
 
 ## Table of Contents
-[Overview](#overview)<br>
-[Requirements](#requirements)<br>
-[Examples](#examples)<br>
-[Instructions](#instructions)<br>
+[Overview](#Overview)<br>
+[Requirements](#Requirements)<br>
+[Examples](#Examples)<br>
+[Instructions](#Instructions)<br>
 [Background](#Background)<br>
-[Using Namespaces](#using-namespaces)<br>
-[Passing in Unicode UTF-8 arguments to main()](#Passing-in-Unicode-UTF-8-arguments-to-main())<br>
+[Using Namespaces](#Using-namespaces)<br>
+[Passing in Unicode UTF-8 arguments to main()](#Passing-in-Unicode-UTF-8-arguments-to-main)<br>
 [Input Buffer Size](#Input-Buffer-Size)<br>
 [Single Characters and Unicode](#Single-Characters-and-Unicode)<br>
 [Windows Console Font](#Windows-Console-Font)<br>
@@ -369,7 +369,7 @@ cin >> name;
 #endif
 ```
 
-## Passing in Unicode UTF-8 arguments to main()
+## Passing in Unicode UTF-8 arguments to main
 
 When compiling in Windows, arguments won't be passed into`int main(int argc, char** argv)` as Unicode by default. A simple fix to this, if needed, is to use a library called [libwinsane](https://github.com/skeeto/scratch/tree/master/libwinsane) which consists of a single object file *libwinsane.o* which can be linked with your project when compiling/linking in Windows. No `#include` directive is needed in your source code.
 
