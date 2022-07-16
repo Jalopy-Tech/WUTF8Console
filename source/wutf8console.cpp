@@ -28,6 +28,7 @@ namespace wutf8console
 	// Note: there is a template for operator >> in the header file.
 	// It coveres all data type not listed below.
 
+
 	Cin& Cin::operator>>(std::string& s)
 	{
 		std::wstring ws;
@@ -410,44 +411,32 @@ namespace wutf8console
 
 	// Replacements for standard input functions
 
-	std::istream& getline(std::istream& is, std::string& str)
-	{
-		if (&is == &std::cin) {
-			std::wstring ws;
-			std::wcin.sync();
-			std::getline(std::wcin,ws);
-			str = ws2s(ws);
-
-			return std::cin;
-
-		} else
-			return std::getline(is, str);
-	}
-
 	std::istream& getline(Cin& is, std::string& str)
 	{
 		if (&is == &cin) {
 			std::wstring ws;
 			std::wcin.sync();
-			std::getline(std::wcin, ws);
+			std::getline(std::wcin,ws);
 			str = ws2s(ws);
 
-			return std::cin;
+			return is;
+
 		} else
-			return std::getline(std::cin, str);
+			return std::getline(is, str);
 	}
 
-	std::istream& getline(std::istream& is, std::string& str, const char delim)
+	std::istream& getline(std::istream& is, std::string& str)
 	{
-		if (&is == &std::cin) {
+		if (&is == &std::cin || &is == &cin) {
 			std::wstring ws;
 			std::wcin.sync();
-			std::getline(std::wcin, ws, c2wc(delim));
+			std::getline(std::wcin,ws);
 			str = ws2s(ws);
 
-			return std::cin;
+			return is;
+
 		} else
-			return std::getline(is, str, delim);
+			return std::getline(is, str);
 	}
 
 	std::istream& getline(Cin& is, std::string& str, const char delim)
@@ -458,9 +447,22 @@ namespace wutf8console
 			std::getline(std::wcin, ws, c2wc(delim));
 			str = ws2s(ws);
 
-			return std::cin;
+			return is;
 		} else
-			return std::getline(std::cin, str, delim);
+			return std::getline(is, str, delim);
+	}
+
+	std::istream& getline(std::istream& is, std::string& str, const char delim)
+	{
+		if (&is == &std::cin || &is == &cin) {
+			std::wstring ws;
+			std::wcin.sync();
+			std::getline(std::wcin, ws, c2wc(delim));
+			str = ws2s(ws);
+
+			return is;
+		} else
+			return std::getline(is, str, delim);
 	}
 
 	char* fgets(char *cstr, int num, FILE *stream)

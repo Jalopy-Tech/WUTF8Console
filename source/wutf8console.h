@@ -46,7 +46,7 @@ namespace wutf8console
 {
 	// Set the maxium size of input size for functions such as scanf
 	// Adjust as necessary.
-	
+
 	const int INPUT_BUFFER_SIZE = 4096;
 
 
@@ -59,9 +59,10 @@ namespace wutf8console
 	// This class uses std::wcin and wide-character-to-narrow-character
 	// conversions.
 
-	class Cin
+	class Cin : public std::istream
 	{
 		public:
+			Cin() : std::istream(0) {}
 
 			// Input operators
 
@@ -147,7 +148,7 @@ namespace wutf8console
 			std::ostream* tie(std::ostream* tiestr);
 
 			char widen(char c) const;
-			
+
 	}; // class Cin
 
 
@@ -161,7 +162,6 @@ namespace wutf8console
 	}
 
 	// The replacement cin object
-
 	extern Cin cin;
 
 
@@ -310,7 +310,7 @@ namespace wutf8console
 
 	// Replacement function for fscanf()
 	// Uses replacement function for scanf if using stdin
-	
+
 	template<typename ...Args>
 	int fscanf(FILE * stream, const char* format, Args ...args)
 	{
@@ -319,14 +319,17 @@ namespace wutf8console
 		} else
 			return std::fscanf(stream, format, args...);
 	}
+
+
 }
+
 
 #else // not _WIN32
 
 namespace wutf8console
 {
 	// Non-Windows version which does nothing
-	
+
 	bool setupConsole();
 }
 #endif // _WIN32
