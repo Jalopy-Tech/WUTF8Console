@@ -25,7 +25,7 @@ The Windows console (called *Windows Terminal* or *Command Prompt*) has the prob
 
 This library allows a C++ console program to use all common C++ input commands to input with Unicode (UTF-8) in Windows. It works by replacing the standard commands with ones that handle UTF-16 input needed by Windows and automatically translating the input to UTF-8 for data types such as `std::string` and `char*`. The replacement commands include `cin >>` (operators and other methods), `getline()`,  and `scanf()`. Output commands from namespace *std* such as `cout <<` , `cerr <<` and `printf()` also work normally.
 
-Because this library allows both input and output in Unicode (UTF-8), modern IDEs such as [Embarcadero Dev-C++ 6.3](https://github.com/Embarcadero/Dev-Cpp),  [Code::Blocks](https://www.codeblocks.org/), [Visual Studio Code](https://code.visualstudio.com/) and [Visual Studio](https://visualstudio.microsoft.com/) can be used instead old IDEs such as [Dev-C++ 5.2](https://sourceforge.net/projects/orwelldevcpp/). The IDE and console application won't be tied to a Windows locale coding page.
+Because this library allows both input and output in Unicode (UTF-8), modern IDEs such as [Embarcadero Dev-C++ 6.3](https://github.com/Embarcadero/Dev-Cpp),  [Code::Blocks](https://www.codeblocks.org/), [Visual Studio Code](https://code.visualstudio.com/) and [Visual Studio](https://visualstudio.microsoft.com/) can be used instead of old IDEs such as [Dev-C++ 5.2](https://sourceforge.net/projects/orwelldevcpp/). The IDE and console application won't be tied to a Windows locale coding page.
 
 The library has been designed to be cross-platform compatible, so that the same source code will compile on non-Windows platforms where the application will use the standard commands only.
 
@@ -540,7 +540,7 @@ Here are some tips for using [Embarcadero Dev-C++ 6.3](https://github.com/Embarc
   
   2. Select the *Fonts* page tab.
   
-  3. Uncheck any boxes under the font that has the pattern *ID xxxxx translation* missing.
+  3. Uncheck any boxes under the font that has the pattern *ID xxxxx translation missing*.
   
   4. Click *Ok* to save changes.
 
@@ -550,7 +550,7 @@ Here are some tips for using [Embarcadero Dev-C++ 6.3](https://github.com/Embarc
 
   1. Go to the menu *Tools* -> *Compiler Options...*.
   
-  2. Under the section *Add the following commands when calling the linker*, add the command:<br>`-llibwinsane.o` .
+  2. Under the section *Add the following commands when calling the linker*, add the command:<br>`-Llibwinsane.o` .
   
   3. Click *Ok* to save changes.
 
