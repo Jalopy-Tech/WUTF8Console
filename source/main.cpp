@@ -47,7 +47,7 @@ int main(int argc, char** argv)
 
 	// Print welcome message.
 
-	string website = "https://github.com/Jalopy-Tech";
+	string website = "https://github.com/Jalopy-Tech/WUTF8Console";
 
 	cout << "Welcome to the WUTF8Console library for C++ " << endl;
 	cout << "(" << website << ")" << endl << endl;
