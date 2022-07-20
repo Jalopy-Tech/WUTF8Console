@@ -1,10 +1,10 @@
-// WUTF8Console C++ library testing
-// See wutf8console-test.h for instructions
+// WUTF8Console C++ library tests
+// See wutf8console-tests.h for instructions
 
-#include "wutf8console-test.h"
+#include "wutf8console-tests.h"
 
 
-namespace wutf8consoleTest
+namespace wutf8consoleTests
 {
 
 // Using these input functions
@@ -240,10 +240,10 @@ void scanfCstrFloatTest()
     printf("return is %d\n\n", j);
 }
 
-void doTest(int argc, char** argv)
+void doTests(int argc, char** argv)
 {
 
-    std::cout << "WUTF8Console Testing" << endl << endl;
+    std::cout << "WUTF8Console Tests" << endl << endl;
 
     argumentsDisplayTest(argc, argv);
 

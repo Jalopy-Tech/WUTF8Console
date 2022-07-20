@@ -1,4 +1,4 @@
-// WUTF8Console C++ library test
+// WUTF8Console C++ library tests
 
 #include <iostream>
 #include <stdio.h>
@@ -6,7 +6,7 @@
 // Include the WUTF8Console C++ library
 
 
-#include "wutf8console-test.h"
+#include "wutf8console-tests.h"
 
 
 // Using these output functions
@@ -23,9 +23,7 @@ int main(int argc, char** argv) {
 
 	wutf8console::setupConsole();
 
-    wutf8consoleTest::doTest(argc, argv);
-
-
+    wutf8consoleTests::doTests(argc, argv);
 
 	return 0;
 

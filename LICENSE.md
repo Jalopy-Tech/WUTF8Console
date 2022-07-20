@@ -1,5 +1,7 @@
 ### MIT License
 
+22 July 2020
+
 Copyright &copy; 2022 Robert J. Joynt.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

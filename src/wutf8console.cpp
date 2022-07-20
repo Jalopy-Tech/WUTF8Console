@@ -9,7 +9,9 @@
  *
  */
 
+
 #include "wutf8console.h"
+
 
 namespace wutf8console
 {
@@ -403,6 +405,7 @@ namespace wutf8console
 	{
 		std::string s(source);
 		std::wstring ws = s2ws(s);
+
 		return wcscpy(destination, ws.c_str());
 	}
 

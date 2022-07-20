@@ -1,4 +1,4 @@
-/* WUTF8Console C++ library testing
+/* WUTF8Console C++ library tests
  *
  * Written by: Robert Joynt
  * Date: July, 2022
@@ -8,8 +8,8 @@
  *
  */
 
-#ifndef WUTF8CONSOLE_TEST_H
-#define WUTF8CONSOLE_TEST_H
+#ifndef WUTF8CONSOLE_TESTS_H
+#define WUTF8CONSOLE_TESTS_H
 
 #include "wutf8console.h"
 #include <iostream>
@@ -17,9 +17,9 @@
 #include <cstdio>
 
 
-namespace wutf8consoleTest {
+namespace wutf8consoleTests {
 
-	void doTest(int argc, char** argv);
+	void doTests(int argc, char** argv);
 
 	void argumentsDisplayTest(int argc, char** argv);
 

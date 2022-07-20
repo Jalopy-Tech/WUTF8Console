@@ -1,22 +1,19 @@
-// WUTF8Console C++ library main() demonstration for cross-platform
+// WUTF8Console C++ library main() example for cross-platform
 
 #include <iostream>
 #include <stdio.h>
 
-// Include the WUTF8Console C++ library
-
-#include "wutf8console.h"
-
+// Use these input commands.
+// Include the WUTF8Console C++ library if using Windows
 // Please don't use "using namespace std;" as this will create
 // an ambiguous compiler error.
 
-// Use these input commands. _WIN32 means any Windows OS including 64 bit.
-
-#ifdef _WIN32
+#ifdef _WIN32 // Windows platform (including 64 bit)
+#include "wutf8console.h"
 using wutf8console::cin;
 using wutf8console::getline;
 using wutf8console::scanf;
-#else
+#else // Non-Windows platform
 using std::cin;
 using std::getline;
 using std::scanf;
@@ -41,9 +38,9 @@ int main(int argc, char** argv)
 {
 
 	// Set the console to UTF-8 in Windows.
-
+#ifdef _WIN32 // Windows platform (including 64 bit)
 	wutf8console::setupConsole();
-
+#endif
 
 	// Print welcome message.
 
