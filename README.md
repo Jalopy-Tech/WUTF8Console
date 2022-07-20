@@ -13,7 +13,7 @@
 [Input Buffer Size](#Input-Buffer-Size)<br>
 [Single Characters and Unicode](#Single-Characters-and-Unicode)<br>
 [Windows Console Font](#Windows-Console-Font)<br>
-[Source Code and Pre-compiled Binaries](#Source-Code-and-Pre-compiled-Binaries)<br>
+[Source Code and Precompiled Binaries](#Source-Code-and-Precompiled-Binaries)<br>
 [Command Reference](#Command-Reference)<br>
 [License](#License)<br>
 [Contact](#Contact)<br>
@@ -44,7 +44,7 @@ The WUTF8Console C++ library can be compiled from source. This is the recommende
 - C++ version of C++14 or higher. It compiles with ISO C++14, ISO C++17 and ISO C++20. It won't compile with C++11.
 - Compilers [TDM GCC](https://gcc.gnu.org/), [MSVC](https://visualstudio.microsoft.com/vs/features/cplusplus/), [MinGW-w64](https://www.mingw-w64.org/), and [LLVM Clang](https://clang.llvm.org/) work.
 
-For further information, see the section [Source Code and Pre-compiled Binaries](#Source-Code-and-Pre-compiled-Binaries).
+For further information, see the section [Source Code and Precompiled Binaries](#Source-Code-and-Precompiled-Binaries).
 
 ### Using Binaries
 
@@ -55,7 +55,7 @@ Pre-compiled WUTF8Console C++ library binaries are available in both release and
 - TDM GCC 9.2 (static and dynamic-link libraries)
 - LLVM Clang (static libraries only)
 
-If you experience problems, it is recommended to compile from source code. For further information, see the section [Source Code and Pre-compiled Binaries](#Source-Code-and-Pre-compiled-Binaries).
+If you experience problems, it is recommended to compile from source code. For further information, see the section [Source Code and Precompiled Binaries](#Source-Code-and-Precompiled-Binaries).
 
 ## Examples
 
@@ -464,7 +464,7 @@ Fonts such as *NimSimSun*, *Lucinda Console* or *Consolas* may be suitabe. If th
 
 A particular Windows locale (a coding page) is not needed as Unicode UTF-8 is used instead.
 
-## Source Code and Pre-compiled Binaries
+## Source Code and Precompiled Binaries
 
 Source code and precompiled binaries are available for download in the [releases](https://github.com/Jalopy-Tech/WUTF8Console/releases) section.
 
