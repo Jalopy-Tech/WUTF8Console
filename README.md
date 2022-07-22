@@ -46,7 +46,7 @@ The WUTF8Console C++ library can be compiled from source. This is the recommende
 
 For further information, see the section [Source Code and Precompiled Binaries](#Source-Code-and-Precompiled-Binaries).
 
-### Using Binaries
+### Using Precompiled Binaries
 
 Pre-compiled WUTF8Console C++ library binaries are available in both release and debug versions. They have been prepared using the following compilers:
 
@@ -497,7 +497,7 @@ The precompiled dynamic-link libraries (DLLs) are available in folders in the `\
 
 - Include the `\include` folder
 - Add the appropriate folder in the `\lib` folder to the library paths in your project.
-- Link the appropriate `libWUTF8Consoledll.a` or `wutf8consoledll.lib` file to your project.
+- Link the appropriate `libwutf8consoledll.a` or `wutf8consoledll.lib` file to your project.
 - Copy the `wutf8console.dll` file to a location in the PATH for the executable such as in the folder of the executable.
 - For compiling with MSVC, add the *preprocessor definition* `WUTF8CONSOLE_IMPORTS`in the project's properties.
 
