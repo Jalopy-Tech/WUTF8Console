@@ -603,6 +603,6 @@ For further inquires, please email: robertjjoynt@gmail.com .
 
 ## Thanks
 
-- To Dokyung Ahn (Eric), my student, for bringing this problem to my attention and testing the library.
+- To Dokyun Ahn (Eric), my student, for bringing this problem to my attention and testing the library.
 - [Chris Wellons](https://nullprogram.com/blog/2021/12/30/) for writing the [libwinsane library](https://github.com/skeeto/scratch/tree/master/libwinsane) which allows Unicode UTF-8 arguments to be passed into  a Windows console C++ program.
 - To [Jarod42](https://stackoverflow.com/users/2684539/jarod42) for providing the [code](https://stackoverflow.com/questions/39101454/pushing-and-popping-the-first-element-of-a-stdtuple) to pop off the first element of a tuple in Stack Overflow.
