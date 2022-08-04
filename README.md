@@ -514,9 +514,8 @@ The following commands are available in the *wutf8console* namespace:
 ### Input functions
 
 ```cpp
-std::istream& getline(std::istream& is, std::string& str); // [recommended]
-std::istream& getline(std::istream& is, std::string& str,
-                      const char delim); // [recommended]
+istream& getline(istream& is, string& str); // [recommended]
+istream& getline(istream& is, string& str, const char delim); // [recommended]
 int scanf(const char* format, ...);
 int fscanf(FILE * stream, const char* format, ...);
 char* fgets(char *str, int num, FILE *stream); // [depreciated!]
@@ -529,7 +528,7 @@ int getchar(); // [not recommended]
 ### cin >> input operators
 
 ```cpp
-Cin& operator>>(std::string& s); // [recommended]
+Cin& operator>>(string& s); // [recommended]
 Cin& operator>>(char* cstr);
 Cin& operator>>(char& c);  // [not recommended]
 Cin& operator>>(T& t); // T is a generic typename // [recommended]
@@ -538,24 +537,24 @@ Cin& operator>>(T& t); // T is a generic typename // [recommended]
 ### cin istream public members
 
 ```cpp
-std::streamsize gcount() const; // [not recommended]
+streamsize gcount() const; // [not recommended]
 int get(); // [not recommended]
 Cin& get(char& c);  // [not recommended]
-Cin& get(char* s, std::streamsize n); // [not recommended]
-Cin& get(char* s, std::streamsize n, char delim); // [not recommended]
-//Cin& get(std::streambuf& sb); // [not yet implemented]
-//Cin& get(std::streambuf& sb, char delim); // [not yet implemented]
-Cin& getline(char* s, std::streamsize n );
-Cin& getline(char* s, std::streamsize n, char delim ); 
-Cin& ignore(std::streamsize n, int delim);
+Cin& get(char* s, streamsize n); // [not recommended]
+Cin& get(char* s, streamsize n, char delim); // [not recommended]
+//Cin& get(streambuf& sb); // [not yet implemented]
+//Cin& get(streambuf& sb, char delim); // [not yet implemented]
+Cin& getline(char* s, streamsize n );
+Cin& getline(char* s, streamsize n, char delim ); 
+Cin& ignore(streamsize n = 1, int delim = EOF);
 int peek();
 Cin& putback(char c);
-Cin& read(char* s, std::streamsize n);
-std::streamsize readsome(char* s, std::streamsize n);
-Cin& seekg(std::streampos pos);
-Cin& seekg(std::streamoff off, ios_base::seekdir way);
+Cin& read(char* s, streamsize n);
+streamsize readsome(char* s, streamsize n);
+Cin& seekg(streampos pos);
+Cin& seekg(streamoff off, ios_base::seekdir way);
 int sync();
-std::streampos tellg();
+streampos tellg();
 Cin& unget();
 ```
 
@@ -563,25 +562,25 @@ Cin& unget();
 
 ```cpp
 bool bad() const;
-void clear(iostate state);
-//std::istream& copyfmt(const std::istream& rhs); [not yet implemented]
+void clear(iostate state = goodbit);
+//istream& copyfmt(const istream& rhs); [not yet implemented]
 bool eof() const;
-std::istream::iostate exceptions() const;
-void exceptions(std::istream::iostate except);
+iostate exceptions() const;
+void exceptions(iostate except);
 bool fail() const;
 char fill() const;
 char fill(char fillch);
 bool good() const;
-std::locale imbue(const std::locale& loc);
+std::locale imbue(const locale& loc);
 char narrow(char c, char dfault) const;
 explicit operator bool() const;
 bool operator!() const;
-//std::streambuf* rdbuf() const; // [not yet implemented]
-//std::streambuf* rdbuf (std::streambuf* sb); // [not yet implemented]
-std::istream::iostate rdstate() const;
-void setstate(std::istream::iostate state);
+//streambuf* rdbuf() const; // [not yet implemented]
+//streambuf* rdbuf (streambuf* sb); // [not yet implemented]
+iostate rdstate() const;
+void setstate(iostate state);
 std::ostream* tie() const;
-std::ostream* tie(std::ostream* tiestr);
+std::ostream* tie(ostream* tiestr);
 char widen(char c) const;
 ```
 
