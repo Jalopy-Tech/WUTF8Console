@@ -1,4 +1,4 @@
-/* WUTF8Console C++ library v1.0
+/* WUTF8Console C++ library v1.1
  * See wutf8console.h for instructions
  *
  * Copyright (c) 2022, Robert J. Joynt.
@@ -141,9 +141,8 @@ namespace wutf8console
 		return *this;
 	}
 
-	Cin& Cin::ignore(std::streamsize n = 1, int delim = EOF)
+	Cin& Cin::ignore(std::streamsize n, int delim)
 	{
-		std::wcin.sync();
 		std::wcin.ignore(n, delim);
 		return *this;
 	}
@@ -239,7 +238,7 @@ namespace wutf8console
 		return std::wcin.bad();
 	}
 
-	void  Cin::clear (std::ios_base::iostate state = std::ios_base::goodbit)
+	void  Cin::clear (std::ios_base::iostate state)
 	{
 		std::wcin.sync();
 		std::wcin.clear(state);

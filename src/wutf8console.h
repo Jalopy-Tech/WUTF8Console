@@ -1,4 +1,4 @@
-/* WUTF8Console C++ library v1.0
+/* WUTF8Console C++ library v1.1
  *
  * Copyright (c) 2022, Robert J. Joynt.
  * All rights reserved.
@@ -8,6 +8,7 @@
  *
  * Written by: Robert J. Joynt
  * Date: July, 2022
+ * Updated: August, 2022
  *
  * This C++ library  allows a C++ console program to use all
  * common C++ input commands to input with UTF-8 in Windows.
@@ -103,7 +104,7 @@ namespace wutf8console
 		Cin& getline(char* s, std::streamsize n);
 		Cin& getline(char* s, std::streamsize n, char delim);
 
-		Cin& ignore(std::streamsize n, int delim);
+		Cin& ignore(std::streamsize n = 1, int delim = EOF);
 
 		int peek();
 
@@ -127,7 +128,7 @@ namespace wutf8console
 
 		bool bad() const;
 
-		void clear(std::ios_base::iostate state);
+		void clear(std::ios_base::iostate state = std::ios_base::goodbit);
 
 		//std::istream& copyfmt(const std::istream& rhs);
 
