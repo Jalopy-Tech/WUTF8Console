@@ -579,8 +579,8 @@ bool operator!() const;
 //streambuf* rdbuf (streambuf* sb); // [not yet implemented]
 iostate rdstate() const;
 void setstate(iostate state);
-std::ostream* tie() const;
-std::ostream* tie(ostream* tiestr);
+ostream* tie() const;
+ostream* tie(ostream* tiestr);
 char widen(char c) const;
 ```
 
