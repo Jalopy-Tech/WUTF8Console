@@ -1,4 +1,4 @@
-/* WUTF8Console C++ library v1.1
+/* WUTF8Console C++ library v1.2
  * See wutf8console.h for instructions
  *
  * Copyright (c) 2022, Robert J. Joynt.
@@ -149,13 +149,11 @@ namespace wutf8console
 
 	int Cin::peek()
 	{
-		std::wcin.sync();
 		return std::wcin.peek();
 	}
 
 	Cin& Cin::putback(char c)
 	{
-		std::wcin.sync();
 		std::wcin.putback(c2wc(c));
 		return *this;
 	}
@@ -165,7 +163,6 @@ namespace wutf8console
 	{
 		wchar_t wcstr[INPUT_BUFFER_SIZE];
 		std::wstring ws;
-		std::wcin.sync();
 		std::wcin.read(wcstr,n);
 		wstr2strcpy(cstr, wcstr);
 
@@ -177,7 +174,6 @@ namespace wutf8console
 		wchar_t wcstr[INPUT_BUFFER_SIZE];
 		std::wstring ws;
 		std::streamsize size;
-		std::wcin.sync();
 		size = std::wcin.readsome(wcstr, n);
 		wstr2strcpy(cstr, wcstr);
 
@@ -187,13 +183,12 @@ namespace wutf8console
 
 	Cin& Cin::seekg(std::streampos pos)
 	{
-		std::wcin.sync();
 		std::wcin.seekg(pos);
 		return *this;
 	}
+	
 	Cin& Cin::seekg(std::streamoff off, std::ios_base::seekdir way)
 	{
-		std::wcin.sync();
 		std::wcin.seekg(off, way);
 		return *this;
 	}
@@ -205,13 +200,11 @@ namespace wutf8console
 
 	std::streampos Cin::tellg()
 	{
-		std::wcin.sync();
 		return std::wcin.tellg();
 	}
 
 	Cin& Cin::unget()
 	{
-		std::wcin.sync();
 		std::wcin.unget();
 
 		return *this;
@@ -222,25 +215,21 @@ namespace wutf8console
 
 	bool Cin::eof() const
 	{
-		std::wcin.sync();
 		return std::wcin.eof();
 	}
 
 	bool Cin::fail() const
 	{
-		std::wcin.sync();
 		return std::wcin.fail();
 	}
 
 	bool Cin::bad() const
 	{
-		std::wcin.sync();
 		return std::wcin.bad();
 	}
 
 	void  Cin::clear (std::ios_base::iostate state)
 	{
-		std::wcin.sync();
 		std::wcin.clear(state);
 	}
 
@@ -252,44 +241,37 @@ namespace wutf8console
 
 	std::istream::iostate Cin::exceptions() const
 	{
-		std::wcin.sync();
 		return std::wcin.exceptions();
 	}
 
 	void Cin::exceptions(std::istream::iostate except)
 	{
-		std::wcin.sync();
 		std::wcin.exceptions(except);
 	}
 
 
 	char Cin::fill() const
 	{
-		std::wcin.sync();
 		return wc2c(std::wcin.fill());
 	}
 
 	char Cin::fill (char fillch)
 	{
-		std::wcin.sync();
 		return wc2c(std::wcin.fill(c2wc(fillch)));
 	}
 
 	bool Cin::good() const
 	{
-		std::wcin.sync();
 		return std::wcin.good();
 	}
 
 	std::locale Cin::imbue(const std::locale& loc)
 	{
-		std::wcin.sync();
 		return std::wcin.imbue(loc);
 	}
 
 	char Cin::narrow(char c, char dfault) const
 	{
-		std::wcin.sync();
 		return std::wcin.narrow(c, dfault);
 	}
 
@@ -321,32 +303,27 @@ namespace wutf8console
 
 	std::istream::iostate Cin::rdstate() const
 	{
-		std::wcin.sync();
 		return std::wcin.rdstate();
 	}
 
 	void Cin::setstate (std::istream::iostate state)
 	{
-		std::wcin.sync();
 		std::wcin.setstate(state);
 	}
 
 
 	std::ostream* Cin::tie() const
 	{
-		std::wcin.sync();
 		return std::cin.tie();
 	}
 
 	std::ostream* Cin::tie (std::ostream* tiestr)
 	{
-		std::wcin.sync();
 		return std::cin.tie(tiestr);
 	}
 
 	char Cin::widen(char c) const
 	{
-		std::wcin.sync();
 		return wc2c(std::wcout.widen(c));
 	}
 

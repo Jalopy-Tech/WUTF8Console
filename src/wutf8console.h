@@ -1,4 +1,4 @@
-/* WUTF8Console C++ library v1.1
+/* WUTF8Console C++ library v1.2
  *
  * Copyright (c) 2022, Robert J. Joynt.
  * All rights reserved.
