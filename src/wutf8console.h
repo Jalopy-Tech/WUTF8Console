@@ -1,4 +1,4 @@
-/* WUTF8Console C++ library v1.2
+/* WUTF8Console C++ library v1.3
  *
  * Copyright (c) 2022, Robert J. Joynt.
  * All rights reserved.
@@ -33,11 +33,19 @@
 // otherwise WUTF8CONSOLE_API is set to nothing
 
 #ifdef WUTF8CONSOLE_EXPORTS
-#define WUTF8CONSOLE_API __declspec(dllexport)
+    #define WUTF8CONSOLE_API __declspec(dllexport)
 #elif WUTF8CONSOLE_IMPORTS
-#define WUTF8CONSOLE_API __declspec(dllimport)
+    #define WUTF8CONSOLE_API __declspec(dllimport)
 #else
-#define WUTF8CONSOLE_API
+    #define WUTF8CONSOLE_API
+#endif
+
+
+// Set GNUC_NEWLINE_FIX flag for fixing extra newline problem
+// with GCC compilers
+
+#ifdef __GNUC__
+    #define GNUC_NEWLINE_FIX
 #endif
 
 
@@ -59,296 +67,297 @@
 
 namespace wutf8console
 {
-	// Set the maxium size of input size for functions such as scanf
-	// Adjust as necessary.
+    // Set the maxium size of input size for functions such as scanf
+    // Adjust as necessary.
 
-	const int INPUT_BUFFER_SIZE = 4096;
+    const int INPUT_BUFFER_SIZE = 4096;
 
 
-	// Function to set Windows output to UTF-8 and input to UTF-16
+    // Function to set Windows output to UTF-8 and input to UTF-16
 
-	WUTF8CONSOLE_API bool setupConsole();
+    WUTF8CONSOLE_API bool setupConsole();
 
 
-	// This class is inherited from istream for the replacement cin object
-	// This class uses std::wcin and wide-character-to-narrow-character
-	// conversions.
+    // This class is inherited from istream for the replacement cin object
+    // This class uses std::wcin and wide-character-to-narrow-character
+    // conversions.
 
-	class WUTF8CONSOLE_API Cin : public std::istream
-	{
-	public:
-		Cin() : std::istream(0) {}
+    class WUTF8CONSOLE_API Cin : public std::istream
+    {
+        public:
+            Cin() : std::istream(0) {}
 
-		// Input operators
+            // Input operators
 
-		Cin& operator>>(std::string& s);
-		Cin& operator>>(char* cstr);
-		Cin& operator>>(char& c);
-		template<typename T>
-		Cin& operator>>(T& t);
+            Cin& operator>>(std::string& s);
+            Cin& operator>>(char* cstr);
+            Cin& operator>>(char& c);
+            template<typename T>
+            Cin& operator>>(T& t);
 
 
-		// istream members
+            // istream members
 
-		std::streamsize gcount() const;
+            std::streamsize gcount() const;
 
-		int get();
-		Cin& get(char& c);
+            int get();
+            Cin& get(char& c);
 
-		Cin& get(char* s, std::streamsize n);
-		Cin& get(char* s, std::streamsize n, char delim);
+            Cin& get(char* s, std::streamsize n);
+            Cin& get(char* s, std::streamsize n, char delim);
 
-		//Cin& get(std::streambuf& sb);
-		//Cin& get(std::streambuf& sb, char delim);
+            //Cin& get(std::streambuf sb);
+            //Cin& get(std::streambuf& sb, char delim);
 
-		Cin& getline(char* s, std::streamsize n);
-		Cin& getline(char* s, std::streamsize n, char delim);
+            Cin& getline(char* s, std::streamsize n);
+            Cin& getline(char* s, std::streamsize n, char delim);
 
-		Cin& ignore(std::streamsize n = 1, int delim = EOF);
+            Cin& ignore(std::streamsize n = 1, int delim = EOF);
 
-		int peek();
+            int peek();
 
-		Cin& putback(char c);
+            Cin& putback(char c);
 
-		Cin& read(char* s, std::streamsize n);
+            Cin& read(char* s, std::streamsize n);
 
-		std::streamsize readsome(char* s, std::streamsize n);
+            std::streamsize readsome(char* s, std::streamsize n);
 
-		Cin& seekg(std::streampos pos);
-		Cin& seekg(std::streamoff off, std::ios_base::seekdir way);
+            Cin& seekg(std::streampos pos);
+            Cin& seekg(std::streamoff off, std::ios_base::seekdir way);
 
-		int sync();
+            int sync();
 
-		std::streampos tellg();
+            std::streampos tellg();
 
-		Cin& unget();
+            Cin& unget();
 
 
-		// ios members
+            // ios members
 
-		bool bad() const;
+            bool bad() const;
 
-		void clear(std::ios_base::iostate state = std::ios_base::goodbit);
+            void clear(std::ios_base::iostate state = std::ios_base::goodbit);
 
-		//std::istream& copyfmt(const std::istream& rhs);
+            //std::istream& copyfmt(const std::istream& rhs);
 
-		bool eof() const;
+            bool eof() const;
 
-		std::istream::ios_base::iostate exceptions() const;
-		void exceptions(std::istream::iostate except);
+            std::istream::ios_base::iostate exceptions() const;
+            void exceptions(std::istream::iostate except);
 
-		bool fail() const;
+            bool fail() const;
 
-		char fill() const;
-		char fill(char fillch);
+            char fill() const;
+            char fill(char fillch);
 
-		bool good() const;
+            bool good() const;
 
-		std::locale imbue(const std::locale& loc);
+            std::locale imbue(const std::locale& loc);
 
-		char narrow(char c, char dfault) const;
+            char narrow(char c, char dfault) const;
 
-		explicit operator bool() const;
+            explicit operator bool() const;
 
-		bool operator!() const;
+            bool operator!() const;
 
-		//std::streambuf* rdbuf() const;
-		//std::streambuf* rdbuf (std::streambuf* sb);
+            //std::streambuf* rdbuf() const;
+            //std::streambuf* rdbuf (std::streambuf* sb);
 
-		std::istream::iostate rdstate() const;
+            std::istream::iostate rdstate() const;
 
-		void setstate(std::istream::iostate state);
+            void setstate(std::istream::iostate state);
 
-		std::ostream* tie() const;
-		std::ostream* tie(std::ostream* tiestr);
+            std::ostream* tie() const;
+            std::ostream* tie(std::ostream* tiestr);
 
-		char widen(char c) const;
+            char widen(char c) const;
 
-	}; // class Cin
+    }; // class Cin
 
 
-	// This handles non-character inout operations
+    // This handles non-character inout operations
 
 
-	template<typename T>
-	Cin& Cin::operator>>(T& t)
-	{
-		std::wcin >> t;
-		return *this;
-	}
+    template<typename T>
+    Cin& Cin::operator>>(T& t)
+    {
+        std::wcin >> t;
 
-	// The replacement cin object
-	extern WUTF8CONSOLE_API Cin cin;
+        return *this;
+    }
 
+    // The replacement cin object
+    extern WUTF8CONSOLE_API Cin cin;
 
-	// Replacements for standard input functions
 
-	WUTF8CONSOLE_API char* fgets(char* str, int num, FILE* stream);
-	WUTF8CONSOLE_API char* gets(char* str);
-	WUTF8CONSOLE_API int getc(FILE* stream);
-	WUTF8CONSOLE_API int fgetc(FILE* stream);
-	WUTF8CONSOLE_API int getchar();
+    // Replacements for standard input functions
 
-	WUTF8CONSOLE_API std::istream& getline(std::istream& is, std::string& str);
-	WUTF8CONSOLE_API std::istream& getline(Cin& is, std::string& str);
-	WUTF8CONSOLE_API std::istream& getline(std::istream& is, std::string& str, const char delim);
-	WUTF8CONSOLE_API std::istream& getline(Cin& is, std::string& str, const char delim);
+    WUTF8CONSOLE_API char* fgets(char* str, int num, FILE* stream);
+    WUTF8CONSOLE_API char* gets(char* str);
+    WUTF8CONSOLE_API int getc(FILE* stream);
+    WUTF8CONSOLE_API int fgetc(FILE* stream);
+    WUTF8CONSOLE_API int getchar();
 
-	// Conversion functions used to convert between wide character (UTF-16)
-	// and narrow character (UTF-8).
+    WUTF8CONSOLE_API std::istream& getline(std::istream& is, std::string& str);
+    WUTF8CONSOLE_API std::istream& getline(Cin& is, std::string& str);
+    WUTF8CONSOLE_API std::istream& getline(std::istream& is, std::string& str, const char delim);
+    WUTF8CONSOLE_API std::istream& getline(Cin& is, std::string& str, const char delim);
 
-	WUTF8CONSOLE_API std::wstring s2ws(const std::string& str);
-	WUTF8CONSOLE_API std::string ws2s(const std::wstring& wstr);
-	WUTF8CONSOLE_API const wchar_t c2wc(const char c);
-	WUTF8CONSOLE_API const char wc2c(const wchar_t wc);
-	WUTF8CONSOLE_API char* wstr2strcpy(char* destination, const wchar_t* source);
-	WUTF8CONSOLE_API wchar_t* str2wstrcpy(wchar_t* destination, const char* source);
+    // Conversion functions used to convert between wide character (UTF-16)
+    // and narrow character (UTF-8).
 
+    WUTF8CONSOLE_API std::wstring s2ws(const std::string& str);
+    WUTF8CONSOLE_API std::string ws2s(const std::wstring& wstr);
+    WUTF8CONSOLE_API const wchar_t c2wc(const char c);
+    WUTF8CONSOLE_API const char wc2c(const wchar_t wc);
+    WUTF8CONSOLE_API char* wstr2strcpy(char* destination, const wchar_t* source);
+    WUTF8CONSOLE_API wchar_t* str2wstrcpy(wchar_t* destination, const char* source);
 
-	// Used to pop off the first element of a tuple
 
-	template <typename Tuple, std::size_t ... Is>
-	WUTF8CONSOLE_API auto pop_front_impl(const Tuple& tuple, std::index_sequence<Is...>);
+    // Used to pop off the first element of a tuple
 
-	template <typename Tuple, std::size_t ... Is>
-	auto pop_front_impl(const Tuple& tuple, std::index_sequence<Is...>)
-	{
-		return std::make_tuple(std::get<1 + Is>(tuple)...);
-	}
+    template <typename Tuple, std::size_t ... Is>
+    WUTF8CONSOLE_API auto pop_front_impl(const Tuple& tuple, std::index_sequence<Is...>);
 
-	template <typename Tuple>
-	WUTF8CONSOLE_API auto pop_front(const Tuple& tuple);
+    template <typename Tuple, std::size_t ... Is>
+    auto pop_front_impl(const Tuple& tuple, std::index_sequence<Is...>)
+    {
+        return std::make_tuple(std::get<1 + Is>(tuple)...);
+    }
 
-	template <typename Tuple>
-	auto pop_front(const Tuple& tuple)
-	{
-		return pop_front_impl(tuple,
-			std::make_index_sequence<std::tuple_size<Tuple>::value - 1>());
-	}
+    template <typename Tuple>
+    WUTF8CONSOLE_API auto pop_front(const Tuple& tuple);
 
-	// scanfparser() recursively parses trough the scanf arguments in order to catch
-	// and replace char* pointers with wchar_t* pointers. Then _wscanf_l is called to do the
-	// UTF-16 version of the scanf() function.
+    template <typename Tuple>
+    auto pop_front(const Tuple& tuple)
+    {
+        return pop_front_impl(tuple,
+                              std::make_index_sequence<std::tuple_size<Tuple>::value - 1>());
+    }
 
-	// This version of scanfparser() fires when there are no more arugments to be parsed.
-	// The _wscanf_l() function is run with the parsed scanf arguments to do the UTF-16 version
-	// of scanf().
+    // scanfparser() recursively parses trough the scanf arguments in order to catch
+    // and replace char* pointers with wchar_t* pointers. Then _wscanf_l is called to do the
+    // UTF-16 version of the scanf() function.
 
-	template<typename ...Args2>
-	WUTF8CONSOLE_API int scanfparser(const std::tuple<>& unparsedArgsTuple,
-		Args2 ... parsedArgs);
+    // This version of scanfparser() fires when there are no more arugments to be parsed.
+    // The _wscanf_l() function is run with the parsed scanf arguments to do the UTF-16 version
+    // of scanf().
 
-	template<typename ...Args2>
-	int scanfparser(const std::tuple<>& unparsedArgsTuple,
-		Args2 ... parsedArgs)
-	{
-		std::wcin.sync();
-		return _wscanf_l(parsedArgs...);
-		return 0;
-	}
+    template<typename ...Args2>
+    WUTF8CONSOLE_API int scanfparser(const std::tuple<>& unparsedArgsTuple,
+                                     Args2 ... parsedArgs);
 
+    template<typename ...Args2>
+    int scanfparser(const std::tuple<>& unparsedArgsTuple,
+                    Args2 ... parsedArgs)
+    {
+        int i;
+        i = _wscanf_l(parsedArgs...);
 
-	// Declare versions of scanfparser
+        return i;
+    }
 
-	template<typename T, typename ...Args1, typename ...Args2>
-	WUTF8CONSOLE_API int scanfparser(const std::tuple<T*, Args1 ...>& unparsedArgsTuple,
-		Args2 ... parsedArgs);
 
+    // Declare versions of scanfparser
 
-	template<typename ...Args1, typename ...Args2>
-	WUTF8CONSOLE_API int scanfparser(const std::tuple<char*, Args1 ...>& unparsedArgsTuple,
-		Args2 ... parsedArgs);
+    template<typename T, typename ...Args1, typename ...Args2>
+    WUTF8CONSOLE_API int scanfparser(const std::tuple<T*, Args1 ...>& unparsedArgsTuple,
+                                     Args2 ... parsedArgs);
 
-	template<typename ...Args1, typename ...Args2>
-	WUTF8CONSOLE_API int scanfparser(const std::tuple<Args1 ...>& unparsedArgsTuple,
-		Args2 ... parsedArgs);
 
+    template<typename ...Args1, typename ...Args2>
+    WUTF8CONSOLE_API int scanfparser(const std::tuple<char*, Args1 ...>& unparsedArgsTuple,
+                                     Args2 ... parsedArgs);
 
-	// This version of scanfparser() fires when a generic argument type is found
+    template<typename ...Args1, typename ...Args2>
+    WUTF8CONSOLE_API int scanfparser(const std::tuple<Args1 ...>& unparsedArgsTuple,
+                                     Args2 ... parsedArgs);
 
-	template<typename T, typename ...Args1, typename ...Args2>
-	int scanfparser(const std::tuple<T*, Args1 ...>& unparsedArgsTuple,
-		Args2 ... parsedArgs)
-	{
 
-		T* t = std::get<0>(unparsedArgsTuple);
+    // This version of scanfparser() fires when a generic argument type is found
 
-		auto newUnparsedArgsTuple = pop_front(unparsedArgsTuple);
+    template<typename T, typename ...Args1, typename ...Args2>
+    int scanfparser(const std::tuple<T*, Args1 ...>& unparsedArgsTuple,
+                    Args2 ... parsedArgs)
+    {
 
-		return scanfparser(newUnparsedArgsTuple, parsedArgs..., &*t);
-	}
+        T* t = std::get<0>(unparsedArgsTuple);
 
+        auto newUnparsedArgsTuple = pop_front(unparsedArgsTuple);
 
-	// This version of scanfparser() fires when a char* pointer argument type is found
-	// in the tuple. It is taken out of the tuple.
-	// The argument is replaced with a wchar_t* pointer. When recursing back, the wchar_t* pointer
-	// array is copied to the char* pointer array.
+        return scanfparser(newUnparsedArgsTuple, parsedArgs..., &*t);
+    }
 
-	template<typename ...Args1, typename ...Args2>
-	int scanfparser(const std::tuple<char*, Args1 ...>& unparsedArgsTuple, Args2 ...parsedArgs)
-	{
 
-		char* cstr = std::get<0>(unparsedArgsTuple);
-		wchar_t wcstr[INPUT_BUFFER_SIZE] = L"";
+    // This version of scanfparser() fires when a char* pointer argument type is found
+    // in the tuple. It is taken out of the tuple.
+    // The argument is replaced with a wchar_t* pointer. When recursing back, the wchar_t* pointer
+    // array is copied to the char* pointer array.
 
-		auto newUnparsedArgsTuple = pop_front(unparsedArgsTuple);
+    template<typename ...Args1, typename ...Args2>
+    int scanfparser(const std::tuple<char*, Args1 ...>& unparsedArgsTuple, Args2 ...parsedArgs)
+    {
 
-		int n = scanfparser(newUnparsedArgsTuple, parsedArgs..., &*wcstr);
+        char* cstr = std::get<0>(unparsedArgsTuple);
+        wchar_t wcstr[INPUT_BUFFER_SIZE] = L"";
 
-		wstr2strcpy(cstr, wcstr);
+        auto newUnparsedArgsTuple = pop_front(unparsedArgsTuple);
 
-		return n;
-	}
+        int n = scanfparser(newUnparsedArgsTuple, parsedArgs..., &*wcstr);
 
-	// Replacement function for scanf()
-	// This uses scanfparser() to recursively parse trough the scanf arguments in order to catch
-	// and replace char* pointers with wchar_t* pointers. Then _wscanf_l is called to do the
-	// UTF-16 version of the scanf() function.
-	template<typename ...Args>
-	WUTF8CONSOLE_API int scanf(const char* format, Args ...args);
+        wstr2strcpy(cstr, wcstr);
 
-	template<typename ...Args>
-	int scanf(const char* format, Args ...args)
-	{
-		// create a wide version of the format string
+        return n;
+    }
 
-		wchar_t wformat[INPUT_BUFFER_SIZE];
-		str2wstrcpy(wformat, format);
+    // Replacement function for scanf()
+    // This uses scanfparser() to recursively parse trough the scanf arguments in order to catch
+    // and replace char* pointers with wchar_t* pointers. Then _wscanf_l is called to do the
+    // UTF-16 version of the scanf() function.
+    template<typename ...Args>
+    WUTF8CONSOLE_API int scanf(const char* format, Args ...args);
 
-		// store the scanf() arguments in a tuple
+    template<typename ...Args>
+    int scanf(const char* format, Args ...args)
+    {
+        // create a wide version of the format string
 
-		auto unparsedArgsTuple = std::tuple<Args...>(args...);
+        wchar_t wformat[INPUT_BUFFER_SIZE];
+        str2wstrcpy(wformat, format);
 
+        // store the scanf() arguments in a tuple
 
-		// set the locale. This is needed when the _wscanf_l() function is called
+        auto unparsedArgsTuple = std::tuple<Args...>(args...);
 
-		_locale_t locale;
-		locale = _create_locale(LC_ALL, "");
 
-		// Call scanfparser to recursively parse the arguments in the tuple.
-		// As the arguments are parsed, they are taken out the tuple
-		// and appended to the argument list at the end.
-		// wformat and locale are the first aruments in this argument list
-		// (not including the tuple at the start).
+        // set the locale. This is needed when the _wscanf_l() function is called
 
-		return scanfparser(unparsedArgsTuple, &*wformat, locale);
-	}
+        _locale_t locale;
+        locale = _create_locale(LC_ALL, "");
 
-	// Replacement function for fscanf()
-	// Uses replacement function for scanf if using stdin
+        // Call scanfparser to recursively parse the arguments in the tuple.
+        // As the arguments are parsed, they are taken out the tuple
+        // and appended to the argument list at the end.
+        // wformat and locale are the first aruments in this argument list
+        // (not including the tuple at the start).
 
-	template<typename ...Args>
-	WUTF8CONSOLE_API int fscanf(FILE* stream, const char* format, Args ...args);
+        return scanfparser(unparsedArgsTuple, &*wformat, locale);
+    }
 
-	template<typename ...Args>
-	int fscanf(FILE* stream, const char* format, Args ...args)
-	{
-		if (stream == stdin) {
-			return scanf(format, args...);
-		}
-		else
-			return std::fscanf(stream, format, args...);
-	}
+    // Replacement function for fscanf()
+    // Uses replacement function for scanf if using stdin
+
+    template<typename ...Args>
+    WUTF8CONSOLE_API int fscanf(FILE* stream, const char* format, Args ...args);
+
+    template<typename ...Args>
+    int fscanf(FILE* stream, const char* format, Args ...args)
+    {
+        if (stream == stdin) {
+            return scanf(format, args...);
+        } else
+            return std::fscanf(stream, format, args...);
+    }
 
 } // namespace wutf8console
 
